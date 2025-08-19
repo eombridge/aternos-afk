@@ -1,12 +1,12 @@
+// index.js
 // 이 파일은 봇의 메인 로직을 담고 있습니다.
 
 const mineflayer = require('mineflayer');
 
 // 환경 변수에서 서버 정보와 봇 이름을 가져옵니다.
-// Render 대시보드에서 이 변수들을 설정해야 합니다.
 const server = process.env.MC_SERVER;
 const port = parseInt(process.env.MC_PORT);
-const username = process.env.MC_USERNAME || 'AFKBot'; // 봇 이름이 설정되지 않았을 경우 'RenderBot' 사용
+const username = process.env.MC_USERNAME || 'AFKBot';
 
 // 서버 정보가 올바르게 설정되었는지 확인합니다.
 if (!server || !port) {
@@ -16,11 +16,12 @@ if (!server || !port) {
 }
 
 // 봇의 연결 옵션을 설정합니다.
+// Render 대시보드에서 설정한 환경 변수가 적용됩니다.
 const botOptions = {
-    host: scafe.kro.kr,
-    port: 28652,
-    username: AFKbot,
-    version: '1.21.8' // 마인크래프트 서버 버전에 맞게 수정해주세요.
+    host: server,
+    port: port,
+    username: username,
+    version: '1.20.1' // 마인크래프트 서버 버전에 맞게 수정해주세요.
 };
 
 // 봇을 생성하고 연결을 시도합니다.
